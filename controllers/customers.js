@@ -4,23 +4,23 @@ const response = require('../Extra/Response.js');
 //const router = express.Router();
 module.exports.controller = function (app) {
     // get all users
-    app.get('/customers/:token', (req, res) => {
+    app.get('/customers', (req, res) => {
 
         try {
 
-            let user = auth.checkAuth(req.params.token);
+            // let user = auth.checkAuth(req.params.token);
 
-            if (!user) {
-                res.json(response.error("Access Denied!"));
-            }
+            // if (!user) {
+            //     res.json(response.error("Access Denied!"));
+            // }
 
-            if (!user.type || user.type != "employee") {
-                res.json(response.error("Access Denied!"));
-            }
+            // if (!user.type || user.type != "employee") {
+            //     res.json(response.error("Access Denied!"));
+            // }
 
-            if (user.department && user.department != "admin") {
-                res.json(response.error("Access Denied!"));
-            }
+            // if (user.department && user.department != "admin") {
+            //     res.json(response.error("Access Denied!"));
+            // }
 
             Customer.find({}, 'first_name last_name email phone_no address gender user_name password ', function (error, customers) {
                 if (error) {
@@ -40,19 +40,19 @@ module.exports.controller = function (app) {
 
         try {
 
-            let user = auth.checkAuth(req.body.token);
+            // let user = auth.checkAuth(req.body.token);
 
-            if (!user) {
-                res.json(response.error("Access Denied!"));
-            }
+            // if (!user) {
+            //     res.json(response.error("Access Denied!"));
+            // }
 
-            if (!user.type || user.type != "employee") {
-                res.json(response.error("Access Denied!"));
-            }
+            // if (!user.type || user.type != "employee") {
+            //     res.json(response.error("Access Denied!"));
+            // }
 
-            if (user.department && user.department != "admin") {
-                res.json(response.error("Access Denied!"));
-            }
+            // if (user.department && user.department != "admin") {
+            //     res.json(response.error("Access Denied!"));
+            // }
 
             Customer.findById(req.params.id, 'first_name last_name email phone_no address gender user_name password', function (error, customer) {
                 if (error) {
@@ -72,19 +72,19 @@ module.exports.controller = function (app) {
 
         try {
 
-            let user = auth.checkAuth(req.body.token);
+            // let user = auth.checkAuth(req.body.token);
 
-            if (!user) {
-                res.json(response.error("Access Denied!"));
-            }
+            // if (!user) {
+            //     res.json(response.error("Access Denied!"));
+            // }
 
-            if (!user.type || user.type != "employee") {
-                res.json(response.error("Access Denied!"));
-            }
+            // if (!user.type || user.type != "employee") {
+            //     res.json(response.error("Access Denied!"));
+            // }
 
-            if (user.department && user.department != "admin") {
-                res.json(response.error("Access Denied!"));
-            }
+            // if (user.department && user.department != "admin") {
+            //     res.json(response.error("Access Denied!"));
+            // }
 
             const newCustomer = new Customer({
                 first_name: req.body.first_name,
@@ -114,19 +114,19 @@ module.exports.controller = function (app) {
 
         try {
 
-            let user = auth.checkAuth(req.params.token);
+            // let user = auth.checkAuth(req.params.token);
 
-            if (!user) {
-                res.json(response.error("Access Denied!"));
-            }
+            // if (!user) {
+            //     res.json(response.error("Access Denied!"));
+            // }
 
-            if (!user.type || user.type != "employee") {
-                res.json(response.error("Access Denied!"));
-            }
+            // if (!user.type || user.type != "employee") {
+            //     res.json(response.error("Access Denied!"));
+            // }
 
-            if (user.department && user.department != "admin") {
-                res.json(response.error("Access Denied!"));
-            }
+            // if (user.department && user.department != "admin") {
+            //     res.json(response.error("Access Denied!"));
+            // }
 
             Customer.findById(req.params.id, 'first_name last_name email phone_no address gender user_name password ', function (error, customer) {
                 if (error) {
@@ -161,19 +161,19 @@ module.exports.controller = function (app) {
 
         try {
 
-            let user = auth.checkAuth(req.params.token);
+            // let user = auth.checkAuth(req.params.token);
 
-            if (!user) {
-                res.json(response.error("Access Denied!"));
-            }
+            // if (!user) {
+            //     res.json(response.error("Access Denied!"));
+            // }
 
-            if (!user.type || user.type != "employee") {
-                res.json(response.error("Access Denied!"));
-            }
+            // if (!user.type || user.type != "employee") {
+            //     res.json(response.error("Access Denied!"));
+            // }
 
-            if (user.department && user.department != "admin") {
-                res.json(response.error("Access Denied!"));
-            }
+            // if (user.department && user.department != "admin") {
+            //     res.json(response.error("Access Denied!"));
+            // }
 
             Customer.remove({
                 _id: req.params.id

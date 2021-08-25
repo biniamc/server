@@ -114,12 +114,12 @@ module.exports.controller = function (app) {
 
     });
 
-    app.get('/auth_info/:token', (req, res) => {
+    app.post('/auth_info', (req, res) => {
 
         try{
             let info = auth.getCredentials();
-            if(info[req.params.token]){
-                res.json(my_response.prepare(info[req.params.token]));
+            if(info[req.body.token]){
+                res.json(my_response.prepare(info[req.body.token]));
             }else{
                 res.json(my_response.error("invalid token"));
             }

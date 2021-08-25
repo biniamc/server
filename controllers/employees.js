@@ -9,20 +9,20 @@ const response = require('../Extra/Response.js');
 module.exports.controller = function (app) {
 
     // get all users
-    app.get('/employees/:token', (req, res) => {
+    app.get('/employees', (req, res) => {
 
         try{
 
             // let user = auth.checkAuth(req.params.token);
-            //
+            
             // if (!user) {
             //     res.json(response.error("Access Denied!"));
             // }
-            //
+            
             // if (!user.type || user.type != "employee") {
             //     res.json(response.error("Access Denied!"));
             // }
-            //
+            
             // if (user.department && user.department != "admin") {
             //     res.json(response.error("Access Denied!"));
             // }
@@ -46,19 +46,19 @@ module.exports.controller = function (app) {
 
         try {
 
-            let user = auth.checkAuth(req.params.token);
+            // let user = auth.checkAuth(req.params.token);
 
-            if (!user) {
-                res.json(response.error("Access Denied!"));
-            }
+            // if (!user) {
+            //     res.json(response.error("Access Denied!"));
+            // }
 
-            if (!user.type || user.type != "employee") {
-                res.json(response.error("Access Denied!"));
-            }
+            // if (!user.type || user.type != "employee") {
+            //     res.json(response.error("Access Denied!"));
+            // }
 
-            if (user.department && user.department != "admin") {
-                res.json(response.error("Access Denied!"));
-            }
+            // if (user.department && user.department != "admin") {
+            //     res.json(response.error("Access Denied!"));
+            // }
 
             Employee.findById(req.params.id, 'emp_id first_name last_name email phone_no gender branch department user_name password', function (error, employee) {
                 if (error) {
@@ -79,15 +79,15 @@ module.exports.controller = function (app) {
         try{
 
             // let user = auth.checkAuth(req.body.token);
-            //
+            
             // if (!user) {
             //     res.json(response.error("Access Denied!"));
             // }
-            //
+            
             // if (!user.type || user.type != "employee") {
             //     res.json(response.error("Access Denied!"));
             // }
-            //
+            
             // if (user.department && user.department != "admin") {
             //     res.json(response.error("Access Denied!"));
             // }
@@ -123,8 +123,8 @@ module.exports.controller = function (app) {
 
         try{
 
-            let user = auth.checkAuth(req.params.token);
-
+           let user = auth.checkAuth(req.params.token);
+ 
             if (!user) {
                 res.json(response.error("Access Denied!"));
             }
