@@ -6,15 +6,15 @@ const auth = require('../Extra/auth');
 
 module.exports.controller = function (app) {
 
-    app.get('/customer_login/:phone_no/:password', (req, res) => {
+    app.post('/customer_login', (req, res) => {
 
         try{
 
             let result = {};
 
             Customers.findOne({
-                phone_no: req.params.phone_no,
-                password: req.params.password,
+                user_name: req.body.user_name,
+                password: req.body.password,
             }, function(err, result_data) {
 
                 try{
@@ -114,7 +114,7 @@ module.exports.controller = function (app) {
 
     });
 
-    app.post('/auth_info', (req, res) => {
+    app.post('/auth_info/', (req, res) => {
 
         try{
             let info = auth.getCredentials();
